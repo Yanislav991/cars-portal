@@ -1,13 +1,56 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --text: #2e2935;
+  --main: #c23651;
+  --white: #ffffff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+.navigation {
+  display: flex;
+  padding: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navigation .logo-section {
+  width: 30%;
+}
+
+.navigation .logo-section .logo-text span {
+  color: var(--main);
+}
+
+.navigation .logo-section .logo-text {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 1.5rem;
+}
+
+.navigation .links-section {
+  width: 40%;
+}
+
+.navigation .links-section ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation .links-section ul .link-container span {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.navigation .links-section ul .link-container span:hover {
+  color: var(--main);
 }
