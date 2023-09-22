@@ -11,10 +11,10 @@ export const Navigation = () => {
             </button>
             <div className="collapse navbar-collapse">
                 <div className="navbar-nav ms-auto p-4 p-lg-0">
-                    <NavLink to="/register" className="nav-item nav-link">Add</NavLink>
+                    <NavLink to="/register" className="nav-item nav-link">Register</NavLink>
                     <NavLink to="/login" className="nav-item nav-link">Login</NavLink>
-                    <NavLink to="/browse" className="nav-item nav-link">Register</NavLink>
-                    <NavLink to="/browse" className="nav-item nav-link">Logout</NavLink>
+                    <NavLink to="/add" className="nav-item nav-link">Add</NavLink>
+                    <NavLink to="/logout" className="nav-item nav-link">Logout</NavLink>
                     <NavLink to="/browse" className="nav-item nav-link">Browse</NavLink>
                 </div>
             </div>
