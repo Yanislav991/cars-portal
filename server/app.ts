@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose, { ConnectOptions } from 'mongoose';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import carRoutes from './src/routes/carRoutes'
 import authRoutes from './src/routes/authRoutes'
 import { requestLogger } from './src/middlewares/logger';
@@ -14,6 +15,14 @@ const dbOptions: ConnectOptions = {
     socketTimeoutMS: 200
 }
 const app = express();
+var allowedOrigins = ['http://localhost:3000',
+    'http://yourapp.com'];
+
+const options: cors.CorsOptions = {
+    origin: allowedOrigins
+};
+
+app.use(cors(options));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

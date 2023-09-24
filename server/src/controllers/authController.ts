@@ -6,9 +6,9 @@ import User from '../models/userModel'
 class AuthController {
     async register(req: Request, res: Response) {
         try {
-            const { username, email, password } = req.body;
+            const { username, password } = req.body;
             const hashedPassword = await bcrypt.hash(password, 10);
-            const newUser = new User({ username, email, hashedPassword });
+            const newUser = new User({ username, hashedPassword });
             await newUser.save();
 
             const secretKey: string = process.env.JWT_SECRET || 'my-secret-key';
