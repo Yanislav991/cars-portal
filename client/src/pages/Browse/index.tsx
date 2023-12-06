@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "../../axios-config";
+import { Car } from "../../types/car"
+import { CarCard } from "../../components/CarCard";
 
 export const Browse = () => {
-    const [cars, setCars] = useState({ hits: [] });
+    const [cars, setCars] = useState<Car[]>([]);
 
     useEffect(() => {
         (async () => {
@@ -12,18 +14,21 @@ export const Browse = () => {
                         "Authorization": localStorage.getItem('token')
                     }
                 });
-
-                console.log(result);
+                setCars(result.data);
             } catch (error) {
                 console.log(error);
             }
 
         })()
-    });
+    }, []);
 
     return (
-        <div>
-            Browse Page
+        <div style={{ height: '80vh', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
+            {cars.map((car, index) =>
+            (
+                <CarCard {...car} />
+            )
+            )}
         </div>
     );
 }
