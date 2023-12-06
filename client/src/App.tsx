@@ -5,18 +5,21 @@ import { Route, Routes } from 'react-router-dom';
 import { Browse } from "./pages/Browse";
 import { Register } from "./pages/Register";
 import { Login } from "./pages/Login";
+import GlobalStateProvider from "./components/GlobalStateProvider";
 
 function App() {
   return (
     <main>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/browse" element={<Browse />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-      <Footer />
+      <GlobalStateProvider>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/browse" element={<Browse />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+        <Footer />
+      </GlobalStateProvider>
     </main >
   );
 }

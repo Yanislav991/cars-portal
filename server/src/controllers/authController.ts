@@ -16,7 +16,7 @@ class AuthController {
                 expiresIn: '1h'
             });
 
-            res.status(201).json({ token });
+            res.status(201).json({ token: token, username: newUser.username });
         } catch (error) {
             res.status(500).json({ error: 'Error registering the user' })
         }

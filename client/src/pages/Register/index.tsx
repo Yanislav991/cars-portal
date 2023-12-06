@@ -9,19 +9,21 @@ export const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        console.log('test')
         e.preventDefault();
         try {
             if (password !== confirmPassword) {
                 alert('Password and Confirm Password fields are not matching.');
                 return;
             }
+            debugger
             const response = await axios.post('/register', {
                 username,
                 password
             });
             const token = response.data.token;
             localStorage.setItem('token', token);
+            //@ts-expect-error
+            dispatch({ isUserLoggedIn: true, username: response.data.username });
             navigate('/browse');
         }
         catch (error) {
@@ -34,7 +36,7 @@ export const Register = () => {
             <form onSubmit={handleSubmit}>
                 <div className="form-outline mb-4">
                     <input type="username" className="form-control" value={username} onChange={(e) => setUsername(e.target.value)} />
-                    <label className="form-label">Username address</label>
+                    <label className="form-label">Username</label>
                 </div>
                 <div className="form-outline mb-4">
                     <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
