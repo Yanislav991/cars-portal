@@ -16,8 +16,8 @@ class CarController {
 
     async getAllCars(req: Request, res: Response) {
         try {
-            const users = await Car.find();
-            res.status(200).json(users);
+            const cars = await Car.find();
+            res.status(200).json(cars);
         } catch (error) {
             res.status(500).json({ error: 'Error retrieving cars' });
         }

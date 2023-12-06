@@ -3,11 +3,10 @@ import { useGlobalState } from '../GlobalStateProvider';
 import { ReactNode } from 'react';
 
 interface GuardProps {
-    name: string;
     children: ReactNode;
 }
 
-const Guard: React.FC<GuardProps> = ({ name, children }) => {
+export const Guard: React.FC<GuardProps> = ({ children }) => {
     const [state, dispatch] = useGlobalState();
 
     if (!state.isUserLoggedIn) {
@@ -16,5 +15,3 @@ const Guard: React.FC<GuardProps> = ({ name, children }) => {
 
     return <>{children}</>;
 };
-
-export default Guard;

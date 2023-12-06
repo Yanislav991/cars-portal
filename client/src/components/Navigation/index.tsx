@@ -24,7 +24,7 @@ export const Navigation = () => {
                         if (state.isUserLoggedIn) {
                             return (
                                 <>
-                                    <NavLink to="/add" className="nav-item nav-link">Add</NavLink>
+                                    <NavLink to="/add-car" className="nav-item nav-link">Add Car</NavLink>
                                     <NavLink to="/browse" className="nav-item nav-link">Browse</NavLink>
                                     <div style={{ width: "20px" }}></div>
                                     <a href="#" onClick={logout} className="nav-item nav-link">Logout</a>
